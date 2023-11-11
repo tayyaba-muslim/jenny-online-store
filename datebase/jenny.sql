@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2023 at 09:58 PM
+-- Generation Time: Nov 11, 2023 at 10:58 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -133,7 +133,8 @@ CREATE TABLE `admin_reg` (
 --
 
 INSERT INTO `admin_reg` (`id`, `name`, `email`, `password`, `phone`, `images`) VALUES
-(1, 'Zain Sarfraz', 'zainsarfraz82@gmail.com', '$2y$10$E94X3Y.CC5XnHG26znQjeOZoabbNM.zDcM2I5SwUlg98HCXFaN.b2', '03172667345', 'mine pic.jpg');
+(1, 'Zain Sarfraz', 'zainsarfraz82@gmail.com', '$2y$10$E94X3Y.CC5XnHG26znQjeOZoabbNM.zDcM2I5SwUlg98HCXFaN.b2', '03172667345', 'mine pic.jpg'),
+(2, 'tayyaba', 'muslimtayyaba@gmail.com', '$2y$10$5AelFqxjZ2UBxN57fonDQ.LH0WxBXQjGVv6Rnn3LSmnwQepO6MaJ2', '12345899998', '');
 
 -- --------------------------------------------------------
 
@@ -156,6 +157,13 @@ CREATE TABLE `booked` (
   `status` tinyint(255) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `booked`
+--
+
+INSERT INTO `booked` (`id`, `userid`, `First Name`, `Last Name`, `Country`, `address`, `Appartment`, `city`, `postal`, `phone`, `email`, `status`) VALUES
+(1, 2, 'saweraansari', 'ansari', 'Pakistan', '424,06 karachi', 'qwerty', 'karachi', 1234, '1234589', 'saw@gmail.com', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -172,6 +180,13 @@ CREATE TABLE `cart` (
   `carttime` time NOT NULL DEFAULT current_timestamp(),
   `updatestatus` varchar(255) NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`cartid`, `userid`, `proid`, `cartqty`, `cartstatus`, `cartdate`, `carttime`, `updatestatus`) VALUES
+(1, 2, 1, 3, 0, '2023-11-11 13:47:55', '13:47:55', 'pending');
 
 -- --------------------------------------------------------
 
@@ -193,7 +208,9 @@ CREATE TABLE `feedback-form` (
 --
 
 INSERT INTO `feedback-form` (`id`, `first_name`, `last_name`, `email`, `phone_number`, `message`) VALUES
-(1, 'zain', 'Sarfraz', 'zainsarfraz82@gmail.com', 2147483647, 'Amazing Products');
+(1, 'tayyaba', 'muslim', 'muslimtayyaba@gmail.com', 2147483647, 'Amazing Products'),
+(2, 'sadia', 'bader', 'sadiabader@gmail.com', 1234589, 'onsumers can dispense their knowledge, show connoisseurship or expertise and thereby improve their '),
+(3, 'muhammad', 'talha', 'talha@gmail.com', 2147483647, 'onsumers can dispense their knowledge, show connoisseurship or expertise and thereby improve their standing in the eyes of their fellow shoppers. ');
 
 -- --------------------------------------------------------
 
@@ -257,7 +274,8 @@ CREATE TABLE `user-register` (
 --
 
 INSERT INTO `user-register` (`id`, `username`, `email`, `password`) VALUES
-(1, 'zainsarfraz', 'zainsarfraz82@gmail.com', '$2y$10$T3hG475uVVdEcDWFn6p.IuvdGrmFWxe9XqttwFwP2jPRicRapke8a');
+(1, 'zainsarfraz', 'zainsarfraz82@gmail.com', '$2y$10$T3hG475uVVdEcDWFn6p.IuvdGrmFWxe9XqttwFwP2jPRicRapke8a'),
+(2, 'kanwal', 'kanwal@gmail.com', '$2y$10$cdrJScEZehSBTiPSzqTXA.N5QV2MxjMFTxV9c4T4FALAEPV6msDha');
 
 --
 -- Indexes for dumped tables
@@ -335,25 +353,25 @@ ALTER TABLE `addproduct`
 -- AUTO_INCREMENT for table `admin_reg`
 --
 ALTER TABLE `admin_reg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `booked`
 --
 ALTER TABLE `booked`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cartid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cartid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `feedback-form`
 --
 ALTER TABLE `feedback-form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `jewellery`
@@ -365,7 +383,7 @@ ALTER TABLE `jewellery`
 -- AUTO_INCREMENT for table `user-register`
 --
 ALTER TABLE `user-register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
